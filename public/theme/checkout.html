@@ -1,0 +1,150 @@
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="">Trang chủ</a></li>
+                    <li><a href="" class="active">Thanh toán</a></li>
+                </ol>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row" >
+            <div ng-show="msg.success==1" class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><i class="fa fa-share"></i> Thanh Toán</div>
+                    <div class="panel-body">
+                        <div class="alert alert-success">Chúng tôi xin chân thành cảm ơn bạn vì đã đặt hàng của chúng tôi. Đơn hàng của bạn đã được nhận!</div>
+                        <div class="col-md-12">
+                            <strong class="text-capitalize text-success"><i class="fa fa-user"></i> Thông tin của quý khách</strong>
+                            <hr/>
+                            <p><strong>Họ: {{msg.first_name}}</strong></p>
+                            <p><strong>Tên: {{msg.last_name}}</strong></p>
+                            <p><strong>Địa chỉ: {{msg.address}}</strong></p>
+                            <p><strong>Thành phố: {{msg.city}}</strong></p>
+                            <p><strong>Số điện thoại: {{msg.phone}}</strong></p>
+                            <p><strong>Email: {{msg.email}}</strong></p>
+                            <p><strong>Phương thức thanh toán: {{msg.order_method}}</strong></p>
+                            <p><strong>Trạng thái đơn hàng: <span class="text-success">Chờ xử lí</span></strong></p>
+                            <a href="/#/"><button class="btn btn-primary">TIẾP TỤC MUA HÀNG</button></a>
+                        </div>
+                        <!--<div class="col-md-4">-->
+                            <!--&lt;!&ndash;<strong class="text-capitalize text-success"><i class="fa fa-shopping-cart"></i> Thông tin giỏ hàng</strong>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<hr/>&ndash;&gt;-->
+                            <!--&lt;!&ndash;&lt;!&ndash;<div class="row">&ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;&lt;!&ndash;<div class="col-md-6" ng-repeat="item in msg.order_items">&ndash;&gt;&ndash;&gt;-->
+                                    <!--&lt;!&ndash;&lt;!&ndash;<img ng-src="/uploads/images/ecommerce/{{cart.options.feature_image}}" class="img-responsive" alt=""/><br/>&ndash;&gt;&ndash;&gt;-->
+                                    <!--&lt;!&ndash;&lt;!&ndash;<p class="text-center"><strong>{{cart.name}}</strong></p>&ndash;&gt;&ndash;&gt;-->
+                                    <!--&lt;!&ndash;&lt;!&ndash;<p class="text-center text-success"><strong>Giá: {{cart.price | number}} VNĐ</strong></p>&ndash;&gt;&ndash;&gt;-->
+                                    <!--&lt;!&ndash;&lt;!&ndash;<p class="text-center text-primary"><strong>Số lượng: {{cart.qty}}</strong></p>&ndash;&gt;&ndash;&gt;-->
+                                <!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+                            <!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+                            <!--<hr/>-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-md-12" ng-init="ship=200000.00;">-->
+                                    <!--<p class="text-success"><strong><i class="fa fa-bars"></i> Tổng đơn hàng</strong></p>-->
+                                    <!--<hr/>-->
+                                    <!--<div class="col-md-8 col-md-offset-4">-->
+                                        <!--&lt;!&ndash;<div class="pull-right">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<p class="text-right"><strong>Tồng tiền: {{carts.cart_total | number}} VNĐ</strong></p>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<p class="text-right"><strong>Vận chuyển: {{ship | number}} VNĐ</strong></p>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;<hr/>&ndash;&gt;-->
+                                            <!--<p class="text-right"><strong>Tổng: {{msg.total + ship | number}} VNĐ</strong></p>-->
+                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<button type="submit" class="btn btn-danger btn-sm btn-block"><i class="fa fa-check"></i> Thanh toán</button>-->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+            <form ng-submit="SaveOrder()">
+            <div ng-hide="msg.success==1" class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><i class="fa fa-share"></i>Thanh toán</div>
+                    <div class="panel-body">
+                        <div class="col-md-8">
+                                <strong class="text-capitalize text-success"><i class="fa fa-user"></i>Thông tin quý khách</strong>
+                                <hr/>
+                                <div class="form-group">
+                                    <label for=""><small>Họ</small><span class="text-danger"><small>*</small></span></label>
+                                    <input type="text" class="form-control input-sm" ng-model="first_name" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><small>Tên</small><span class="text-danger"><small>*</small></span></label>
+                                    <input type="text" class="form-control input-sm" ng-model="last_name" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><small>Email</small><span class="text-danger"><small>*</small></span></label>
+                                    <input type="email" class="form-control input-sm" ng-model="email" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><small>Số điện thoại</small><span class="text-danger"><small>*</small></span></label>
+                                    <input type="text" class="form-control input-sm" ng-model="phone" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><small>Địa chỉ</small><span class="text-danger"><small>*</small></span></label>
+                                    <input type="text" class="form-control input-sm" ng-model="address" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><small>Thành phố</small><span class="text-danger"><small>*</small></span></label>
+                                    <select ng-model="city"  class="form-control" ng-options="x.value as x.name for x in cities" >
+                                        <option value="">Chọn thành phố</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><small>Ghi chú:</small><span class="text-danger"><small>*</small></span></label>
+                                    <textarea ng-model="note" class="form-control" id="" cols="30" rows="10" ></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><small>Phương thức thanh toán</small><span class="text-danger"><small>*</small></span></label><br/>
+                                    <label data-target="#bank_detail" data-toggle="collapse"><input type="radio" id="method_bank" value="Chuyển khoản ngân hàng" name="order_method" ng-model="order_method">Chuyển khoản ngân hàng</label><br/>
+                                        <div id="bank_detail" class="collapse">
+                                            <div class="accordion-inner">
+                                                <p class="text-primary"><strong>STK: 0991000007201</strong></p>
+                                                <p class="text-primary"><strong>Chủ TK : Tran Thi Ha</strong></p>
+                                                <p class="text-primary"><strong>NH: Vietcombank - CN Tây Hồ- Hà Nội</strong></p>
+                                            </div>
+                                        </div>
+                                    <label data-target="#bank_detail" data-toggle="collapse"><input type="radio" value="Thanh toán tiền mặt khi nhận hàng" ng-model="order_method">Thanh toán tiền mặt khi nhận hàng</label><br/>
+                                </div>
+                        </div>
+                        <div class="col-md-4" ng-controller="CartController">
+                            <strong class="text-capitalize text-success"><i class="fa fa-shopping-cart"></i> Thông tin giỏ hàng</strong>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-md-6" ng-repeat="cart in carts.cart_contents">
+                                    <img ng-src="/uploads/images/ecommerce/{{cart.options.feature_image}}" class="img-responsive" alt=""/><br/>
+                                    <p class="text-center"><strong>{{cart.name}}</strong></p>
+                                    <p class="text-center text-success"><strong>Giá: {{cart.price | number}} VNĐ</strong></p>
+                                    <p class="text-center text-primary"><strong>Số lượng: {{cart.qty}}</strong></p>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="text-success"><strong><i class="fa fa-bars"></i> Tổng đơn hàng</strong></p>
+                                    <hr/>
+                                    <div class="col-md-8 col-md-offset-4">
+                                        <div class="pull-right">
+                                            <p class="text-right"><strong>Tổng tiền: {{carts.cart_total | number}} VNĐ</strong></p>
+                                            <p class="text-right"><strong>Vận chuyển: Tính sau</strong></p>
+                                            <hr/>
+                                            <p class="text-right"><strong>Tổng: {{carts.cart_total | number}} VNĐ</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-danger btn-sm btn-block"><i class="fa fa-check"></i> Thanh toán</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- End product group -->
+    </div>
+<!-- End main -->

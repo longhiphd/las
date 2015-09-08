@@ -1,0 +1,98 @@
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="#">Trang chủ</a></li>
+                    <li class="active">Giỏ Hàng</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <header><h1 class="cart-header">GIỎ HÀNG CỦA BẠN</h1></header>
+        <hr/>
+        <strong ng-show="msg.success == 1" class="text-success"><i class="fa fa-check"></i>{{msg.msg}}</strong>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 cart text-center">
+                    <!--<div class="row cart-table-header">-->
+                        <!--<div class="col-md-6 col-xs-4">Sản phẩm</div>-->
+                        <!--<div class="col-md-3 col-xs-2 ">Số lượng</div>-->
+                        <!--<div class="col-md-2 col-xs-4">Thành tiền</div>-->
+                        <!--<div class="col-md-1 col-xs-2">Xóa</div>-->
+                    <!--</div>-->
+                    <!--<div class="row cart-list-items">-->
+                        <!--<div class="col-md-6 col-xs-4"><img src="/theme/images/product-1.png" width="100px" height="100px"></div>-->
+                        <!--<div class="col-md-3 col-xs-2 text-center"><input type="number" class="cart-quantity"></div>-->
+                        <!--<div class="col-md-2 col-xs-4 cart-price">350.000 VNĐ</div>-->
+                        <!--<div class="col-md-1 col-xs-2"><i class="fa fa-times"></i></div>-->
+                    <!--</div>-->
+                    <table class="table table-hover">
+                        <thead>
+                            <th width="4%">#</th>
+                            <th width="15%"><center>Ảnh sản phẩm</center></th>
+                            <th width="25%"><center>Tên sản phẩm</center></th>
+                            <th width="15%"><center>Số lượng</center></th>
+                            <th width="30%"><center>Giá sản phẩm</center></th>
+                            <th><center>Giá</center></th>
+                            <th><center>Xóa</center></th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="cart in carts.cart_contents" ng-init="quantity=cart.qty;price=cart.price;rowId=cart.rowid">
+                                    <td>1</td>
+                                    <td width="15%"><img ng-src="/uploads/images/ecommerce/{{cart.options.feature_image}}" class="img-responsive"></td>
+                                    <th width="25%"><center>{{cart.name}}</center></th>
+                                    <td width="15%"><input type="text" class="form-control" ng-change="Edit()" ng-model="quantity"/></td>
+                                    <td width="30%">{{cart.price | number}} VNĐ</td>
+                                    <td width="15%"><center>{{quantity * price | number}} VNĐ</center></td>
+                                    <td><button ng-really-message="Are you sure?" ng-really-click="Delete(cart.rowid)" class="btn btn-sm btn-danger"><i  class="fa fa-times"></i></button></td>
+                                    <td>
+                                        <form action="/update-cart" method="POST" ng-show="!Edit">
+                                            <input type="hidden" class="form-control" value="{{quantity}}" name="quantity"/>
+                                            <input type="hidden" value="{{cart.rowid}}" name="rowId"/>
+                                            <button class="btn btn-primary btn-sm"><i class="fa fa-check"></i>Cập nhật</button>
+                                        </form>
+                                    </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>               
+
+                <hr>
+
+                <div class="col-md-4 col-md-offset-8 bill text-right">
+                    <div class="row">
+                        <header><h3>TỔNG THANH TOÁN</h3></header>
+                        <hr>
+                        <table width="100%">
+                            <tr>
+                                <td>Thành tiền: </td>
+                                <td style="color: red">{{carts.cart_total | number}} VNĐ</td>
+                            </tr>
+                            <tr>
+                                <td>Phí vận chuyển: </td>
+                                <td style="color: red">Tính sau</td>
+                            </tr><tr>
+                                <td>Tổng số: </td>
+                                <td style="color: red; font-weight: bold; font-size: 1.5em;">{{carts.cart_total| number}}VNĐ</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="container button-group">
+                    <div class="row">
+                        <hr>
+                        <a href="/#/"><button class="btn btn-default btn-lg">Tiếp tục mua hàng</button></a>
+                        <a href="/#/gio-hang"><button type="submit" class="btn btn-default btn-lg">Cập nhật giỏ hàng</button></a>
+                        <a href="/#/thanh-toan"><button class="btn btn-danger btn-lg pull-right">MUA HÀNG</button></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>

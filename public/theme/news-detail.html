@@ -1,0 +1,53 @@
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="#">Trang chủ</a></li>
+                    <li>Chi tiết</li>
+                    <li class="active">{{post.name}}</li>
+                </ol>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-9 news-detail">
+            <div class="row">
+                <header class="text-uppercase"><h2>{{post.name}}</h2></header>
+                <p class="date">{{post.publish_at}}</p>
+                <htmldiv content="post.content"></htmldiv>
+                <div class="tags" ng-repeat="tag in post.tags"><i class="fa fa-tags"></i>{{tag.name}},</div>
+            </div>
+            <hr/>
+            <h3>Bình luận</h3>
+            <div class="col-md-12" ng-repeat="comment in comments">
+                <strong class="text-danger">1. {{comment.name}} / {{comment.email}}: </strong><br/>
+                <span class="label label-success">{{comment.created_at}}</span> <small>{{comment.content}}</small>
+                <hr/>
+            </div>
+            <div class="col-md-8" style="padding: 0px">
+                <form  ng-submit="AddComment()">
+                    <input type="hidden" ng-model="post.id" />
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="email" ng-model="email" class="form-control input-sm" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Tên</label>
+                        <input type="text" ng-model="name" class="form-control input-sm" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Nội dung</label>
+                        <textarea name="" class="form-control" ng-model="content" id="" cols="30" rows="8" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-danger btn-sm">Bình luận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3" ng-controller="RecentPost">
+            <h3>Bài viết liên quan</h3>
+           <p ng-repeat="post in posts"> <a href="/#/chi-tiet/{{post.slug}}">{{post.name}}</a></p>
+            <hr/>
+        </div>
+    </div>

@@ -1,0 +1,101 @@
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="#">Trang chủ</a></li>
+                    <li class="active">Tư vấn</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-6 consult-content">
+            <div class="row">
+                <header class="text-uppercase"><h3>Hiện thực hóa căn nhà trong mơ của bạn</h3></header>
+
+                <p>Chạm đến cảm xúc sâu thẳm <br>
+                Chạm đến giá trị đích thực<br>
+                Chạm đến những điều mới mẻ và tốt đẹp<br>
+                Chạm đến sự HOÀN MỸ<br>
+                MIR décor tự tin chạm tới trái tim của mỗi khách hàng bằng niềm<br>
+                cảm hứng sáng tạo và đam mê khi thỏa sức thể hiện ý tưởng.</p>
+                <p>Phục vụ tư vấn thiết kế miễn phí khi mua đồ tại MIR decor <br>
+                Hướng dẫn quý khách trong việc chọn đồ nội thất, trang trí<br>
+                Tư vấn để có một không gian sống với phong cách thiết kế riêng phù hợp
+                với từng gia đình.<br>
+                Từ bản vẽ mặt bằng nhà quý khách, thiết kế MIR thực hiện bản vẽ 3D<br>
+                giúp quý khách dễ dàng hình dung thực tế.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <img src="/theme/images/consult.jpg" class="img-responsive" alt="">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <header><h3 class="text-uppercase text-center consult-headline">HÃY NÓI LÊN MONG MUỐN CỦA BẠN VÀ ĐẶT LỊCH TƯ VẤN CÙNG KIẾN TRÚC SƯ MIR NGAY NÀO </h3></header>
+                <div class="alert alert-success alert-dismissable" ng-show="msg.success=='1'">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                    <strong>Thành công!</strong> {{msg.msg}}
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <form role="form" ng-submit="CreateConsult()">
+                            <div class="form-group col-md-12">
+                                <label class="control-label col-md-1" for="title">Tiêu đề:</label>
+                                <div class="col-md-11">
+                                    <input type="text" class="form-control" id="title" placeholder="Tiêu đề" ng-model="title">
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group col-md-12">
+                                            <label class="control-label col-md-3" for="name">Họ và tên:</label>
+                                            <div class="col-md-9">
+                                              <input type="text" class="form-control" id="name" placeholder="Họ và tên" ng-model="full_name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="control-label col-md-3" for="phone">Số điện thoại:</label>
+                                            <div class="col-md-9">
+                                              <input type="text" class="form-control" id="phone" placeholder="Số điện thoại" ng-model="phone">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="control-label col-md-3" for="email">Email:</label>
+                                            <div class="col-md-9">
+                                              <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="email">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="control-label col-md-3" for="address">Địa chỉ:</label>
+                                            <div class="col-md-9">
+                                              <input type="text" class="form-control" id="address" placeholder="Địa chỉ" ng-model="address">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <label class="control-label col-md-3" for="date">Ngày:</label>
+                                            <div class="col-md-9">
+                                              <input type="date" class="form-control" id="date" placeholder="Ngày" ng-model="date">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="comment" class="control-label col-md-3">Mong muốn:</label>
+                                        <div class="col-md-9"><textarea class="form-control" rows="10" id="comment" ng-model="content"></textarea></div>
+                                        <div class="col-md-3" ></div>
+                                        <div class="col-md-9"><button class="btn btn-default btn-block">Đặt lịch</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

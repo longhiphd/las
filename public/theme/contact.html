@@ -1,0 +1,141 @@
+<head>
+    <title>Liên Hệ | Mir</title>
+</head>
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="#">Trang chủ</a></li>
+                <li class="active">Liên hệ</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="alert alert-success alert-dismissable" ng-show="msg.success=='1'">
+       <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+       <strong>Thành công!</strong> {{msg.msg}}
+       </div>
+<div class="col-md-6">
+    <form name="ContactForm"  ng-submit="CreateContact()">
+        <div class="form-group">
+            <label class="control-label"><small>Họ:</small></label>
+            <input type="text" class="form-control input-sm" ng-model="first_name" required>
+        </div>
+        <div class="form-group">
+            <label class="control-label"><small>Tên:</small></label>
+            <input type="text" class="form-control input-sm" ng-model="last_name" required>
+        </div>
+        <div class="form-group">
+            <label class="control-label"><small>Email:</small></label>
+            <input type="email" class="form-control input-sm" ng-model="email" required>
+        </div>
+        <div class="form-group">
+            <label class="control-label"><small>Số điện thoại:</small></label>
+            <input type="text" class="form-control input-sm" ng-model="phone" required>
+        </div>
+        <div class="form-group">
+            <label class="control-label "><small>Vấn đề:</small></label>
+            <input type="text" class="form-control input-sm" ng-model="subject" required>
+        </div>
+        <div class="form-group">
+            <label class="control-label" ><small>Nội dung:</small></label>
+            <textarea name="" class="form-control input-sm" ng-model="content" id="" cols="30" rows="10" required></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Gửi</button>
+        </div>
+    </form>
+</div>
+<div class="col-md-6">
+    <div style="height: 25px"></div>
+    <iframe width="100%" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=41a+Lý+Thái+Tổ,+Hà+Noi,+Hà+Nội,+Việt+Nam&amp;key=AIzaSyAzhLdGPiiv_h9dOKV65X152bbHzT3_a8M" allowfullscreen=""></iframe>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="col-md-12">-->
+        <!--<div class="row">-->
+            <!--<header><h3 class="text-uppercase text-center consult-headline">HÃY NÓI LÊN MONG MUỐN CỦA BẠN VÀ ĐẶT LỊCH TƯ VẤN CÙNG KIẾN TRÚC SƯ MIR NGAY NÀO </h3></header>-->
+            <!--<div class="alert alert-success alert-dismissable" ng-show="msg.success=='1'">-->
+                <!--<button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>-->
+                <!--<strong>Thành công!</strong> {{msg.msg}}-->
+            <!--</div>-->
+            <!--<div class="container-fluid">-->
+                <!--<div class="row">-->
+                    <!--<form role="form" ng-submit="CreateConsult()">-->
+                        <!--<div class="form-group col-md-12">-->
+                            <!--<label class="control-label col-md-1" for="title">Tiêu đề:</label>-->
+                            <!--<div class="col-md-11">-->
+                                <!--<input type="text" class="form-control" id="title" placeholder="Tiêu đề" ng-model="title">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="container-fluid">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-md-6">-->
+                                    <!--<div class="form-group col-md-12">-->
+                                        <!--<label class="control-label col-md-3" for="name">Họ và tên:</label>-->
+                                        <!--<div class="col-md-9">-->
+                                            <!--<input type="text" class="form-control" id="name" placeholder="Họ và tên" ng-model="full_name">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group col-md-12">-->
+                                        <!--<label class="control-label col-md-3" for="phone">Số điện thoại:</label>-->
+                                        <!--<div class="col-md-9">-->
+                                            <!--<input type="text" class="form-control" id="phone" placeholder="Số điện thoại" ng-model="phone">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group col-md-12">-->
+                                        <!--<label class="control-label col-md-3" for="email">Email:</label>-->
+                                        <!--<div class="col-md-9">-->
+                                            <!--<input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="email">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group col-md-12">-->
+                                        <!--<label class="control-label col-md-3" for="address">Địa chỉ:</label>-->
+                                        <!--<div class="col-md-9">-->
+                                            <!--<input type="text" class="form-control" id="address" placeholder="Địa chỉ" ng-model="address">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group col-md-12">-->
+                                        <!--<label class="control-label col-md-3" for="date">Ngày:</label>-->
+                                        <!--<div class="col-md-9">-->
+                                            <!--<input type="date" class="form-control" id="date" placeholder="Ngày" ng-model="date">-->
+                                        <!--</div>-->
+
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group col-md-6">-->
+                                    <!--<label for="comment" class="control-label col-md-3">Mong muốn:</label>-->
+                                    <!--<div class="col-md-9"><textarea class="form-control" rows="10" id="comment" ng-model="content"></textarea></div>-->
+                                    <!--<div class="col-md-3" ></div>-->
+                                    <!--<div class="col-md-9"><button class="btn btn-default btn-block">Đặt lịch</button></div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+

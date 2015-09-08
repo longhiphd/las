@@ -1,0 +1,168 @@
+
+	<div class="row">
+	<div class="col-md-6">
+        <div class="">
+            <ol class="breadcrumb">
+                <li><a href="">Trang chủ</a></li>
+                <li class="">Sản phẩm</li>
+                <li class="active">{{product.name}}</li>
+            </ol>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-sm-6">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active" data-thumb="0">
+                    <img ng-src="/uploads/images/ecommerce/{{product.feature_image}}" class="img-responsive">
+                </div>
+                <div class="item" data-thumb="0" ng-repeat="galery in product.galeries">
+                    <img ng-src="/uploads/images/ecommerce/{{galery.img}}" class="img-responsive">
+                </div>
+                <!--<div class="item" data-thumb="1">-->
+                    <!--<img src="http://placehold.it/350x250/7B1C8E/fff&amp;text=Product+Image+5">-->
+                <!--</div>-->
+                <!--<div class="item" data-thumb="1">-->
+                    <!--<img src="http://placehold.it/350x250/9EF383/000&amp;text=Product+Image+6">-->
+                <!--</div>-->
+                <!--<div class="item" data-thumb="1">-->
+                    <!--<img src="http://placehold.it/350x250/D64908/fff&amp;text=Product+Image+7">-->
+                <!--</div>-->
+                <!--<div class="item" data-thumb="1">-->
+                    <!--<img src="http://placehold.it/350x250/E3A3A1/000&amp;text=Product+Image+8">-->
+                <!--</div>-->
+            </div>
+        </div> 
+    <div class="clearfix">
+        <div id="thumbcarousel" class="carousel slide" data-interval="false">
+            <div class="carousel-inner">
+                <div class="item active" ng-repeat="galery in product.galeries">
+                    <div data-target="#carousel" data-slide-to="{{$index + 1}}" class="thumb"><img ng-src="/uploads/images/ecommerce/{{galery.img}}" width="100px" height="100px"></div>
+                </div><!-- /item -->
+                <!--<div class="item">-->
+                    <!--<div data-target="#carousel" data-slide-to="4" class="thumb"><img src="http://placehold.it/100/7B1C8E/fff&amp;text=Product+Image+5"></div>-->
+                    <!--<div data-target="#carousel" data-slide-to="5" class="thumb"><img src="http://placehold.it/100/9EF383/000&amp;text=Product+Image+6"></div>-->
+                    <!--<div data-target="#carousel" data-slide-to="6" class="thumb"><img src="http://placehold.it/100/D64908/fff&amp;text=Product+Image+7"></div>-->
+                    <!--<div data-target="#carousel" data-slide-to="7" class="thumb"><img src="http://placehold.it/100/E3A3A1/000&amp;text=Product+Image+8"></div>-->
+                <!--</div>&lt;!&ndash; /item &ndash;&gt;-->
+            </div><!-- /carousel-inner -->
+            <!--<a class="left carousel-control" href="#thumbcarousel" role="button" data-slide="prev">-->
+                <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+            <!--</a>-->
+            <!--<a class="right carousel-control" href="#thumbcarousel" role="button" data-slide="next">-->
+                <!--<span class="glyphicon glyphicon-chevron-right"></span>-->
+            <!--</a>-->
+        </div> <!-- /thumbcarousel -->
+    </div><!-- /clearfix -->
+    </div> <!-- /col-sm-6 -->
+    <div class="col-sm-6 product-detail">
+        <h1 class="text-uppercase pro-name">{{product.name}}</h1>
+        <h3 class="pro-desc-header">Mô tả</h3>
+        <htmldiv content="product.description"></htmldiv>
+		<h2 class="pro-price">{{product.listed_price | number}} VNĐ</h2>
+		<div style="margin-top: 50px;">
+            <strong ng-show="msg.success == 1" class="text-success"><i class="fa fa-check"></i>{{msg.msg}}</strong>
+            <form ng-submit="AddToCart()">
+                <input type="number" ng-model="quantity" class="pull-left">
+                <input type="hidden" ng-model="product.id" />
+                <button class="btn btn-cart btn-lg pull-left">THÊM VÀO GIỎ HÀNG</button>
+                <a href="/#/gio-hang"><button ng-show="msg.success == 1" class="btn btn-view-cart btn-lg pull-left btn-success">XEM GIỎ HÀNG NGAY</button></a>
+                <div class="clearfix"></div>
+            </form>
+		</div>
+    </div> <!-- /col-sm-6 -->
+    <div class="clearfix"></div>
+    <div class="col-md-12 details">
+    	<ul class="nav nav-pills">
+		  	<li class="active"><a data-toggle="tab" data-target="#detail">Chi tiết</a></li>
+		  	<li><a data-toggle="tab" data-target="#policy">Chính sách đổi hàng</a></li>
+		  	<li><a data-toggle="tab" data-target="#comment">Nhận xét</a></li>
+		</ul>
+		<div class="tab-content">
+		  	<div id="detail" class="tab-pane fade in active">
+		  		<h3>Chi tiết sản phẩm</h3>
+                <hr/>
+                <htmldiv content="product.content"></htmldiv>
+		  	</div>
+		  	<div id="policy" class="tab-pane fade">
+		  		<h3>Tab 2</h3>
+			    <p>Bộ 2 tranh vintage gỗ bướm và hoa (bộ)
+				Giá: 650.000 (bộ) 2 bức<br>
+				Chất liệu: Tranh gỗ <br>
+				Kích thước: 30*40cm/bức <br>
+				Hãy gọi ngay cho TreeHouse để chúng tôi có thể tư vấn cho bạn. <br>
+				Hotline Hà Nội : 0962872200 - Sài Gòn : 0909463132</p>
+		  	</div>
+		  	<div id="comment" class="tab-pane fade">
+                <div class="col-md-12">
+                    <h2>Đánh giá sản phẩm</h2>
+                    <div class="col-md-12 rate_box">
+                        <div class="row" ng-repeat="rate in rates">
+                            <strong ng-if="rate.rate == 5" class="text-danger">{{$index + 1}}. {{rate.name}} / {{rate.email}} /
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                            </strong>
+                            <strong ng-if="rate.rate == 4" class="text-danger">{{$index + 1}}. {{rate.name}} / {{rate.email}} /
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                            </strong>
+                            <strong ng-if="rate.rate == 3" class="text-danger">{{$index + 1}}. {{rate.name}} / {{rate.email}} /
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                            </strong>
+                            <strong ng-if="rate.rate == 2" class="text-danger">{{$index + 1}}. {{rate.name}} / {{rate.email}} /
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                            </strong>
+                            <strong ng-if="rate.rate == 1" class="text-danger">{{$index + 1}}. {{rate.name}} / {{rate.email}} /
+                                <i  style="color: gold" class="fa fa-star fa-5 "></i>
+                            </strong>
+                            <br/>
+                            <span class="label label-success">{{rate.created_at}}</span><small class="text-success">{{rate.content}}</small>
+                        </div>
+                        <hr/>
+                    </div>
+                </div>
+                <hr/>
+                <div class="col-md-6">
+                    <strong class="text-success">{{msg_rate.msg}}</strong>
+                    <form ng-submit="AddRate()" >
+                        <div class="form-group">
+                            <label for="">Đánh giá</label>
+                            <select name="" ng-model="rate" class="form-control" >
+                                <option value="5">5 sao</option>
+                                <option value="4">4 sao</option>
+                                <option value="3">3 sao</option>
+                                <option value="2">2 sao</option>
+                                <option value="1">1 sao</option>
+                            </select>
+                        </div>
+                        <input type="hidden" ng-model="product.id" />
+                        <div class="form-group">
+                            <label for="">Email</label>
+                            <input type="email" ng-model="email" class="form-control input-sm" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tên</label>
+                            <input type="text" ng-model="name" class="form-control input-sm" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nội dung</label>
+                            <textarea name="" class="form-control" ng-model="content" id="" cols="30" rows="10" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-sm">Đánh giá</button>
+                        </div>
+                    </form>
+                </div>
+		  	</div>
+		</div>
+    </div>
+  </div> <!-- /row -->
+

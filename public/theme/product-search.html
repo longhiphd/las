@@ -1,0 +1,101 @@
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="">Trang chủ</a></li>
+                <li><a href="">Danh Mục</a></li>
+                <li class="active"></li>
+            </ol>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="container">
+        <div class="row filter">
+            <div class="col-md-3">
+                <strong>Sắp xếp theo</strong>
+                <select name="" class="form-control input-sm"  ng-model="price" ng-options="x.value as x.name for x in orderPrices">
+                    <option selected value="">None</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <strong>Sản phẩm mỗi trang</strong>
+                <input type="text" class="form-control input-sm" ng-model="pageSize"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product group -->
+    <section class="product-group">
+        <div class="">
+            <figure class="product-group-item col-md-3 col-xs-6" dir-paginate="product in products | itemsPerPage:pageSize | orderBy:price |filter:search" current-page="currentPage">
+                <div class="product-wraper">
+                    <div class="product-img">
+                        <a href=""><img ng-src="/uploads/images/ecommerce/{{product.feature_image}}" alt="" class="img-responsive"></a>
+                        <div class="price-hover visible-lg">{{product.listed_price | number}}VNĐ</div>
+                    </div>
+                    <header class="text-center text-uppercase">{{product.name}}</header>
+                    <p class="price text-center">{{product.listed_price |number}}VNĐ</p>
+                    <div class="product-btn col-md-12 visible-lg">
+                        <a href="" data-toggle="modal" data-target="#ProductPreview{{product.id}}"><button class="pull-left btn-buy">Mua ngay</button></a>
+                        <a href="/#/san-pham/{{product.slug}}"><button class="pull-right btn-more">Xem thêm</button></a>
+                    </div>
+                </div>
+                <div id="ProductPreview{{product.id}}" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">{{product.name}}</h4>
+                            </div>
+                            <form action="/add-to-cart-category" method="POST">
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6"><img ng-src="/uploads/images/ecommerce/{{product.feature_image}}" alt="" class="img-responsive"></div>
+                                        <div class="col-md-6">
+                                            <p><strong>Tên sản phẩm: {{product.name}}</strong></p>
+                                            <p><strong>Giá sản phẩm:{{product.listed_price |number}}</strong></p>
+                                            <p><strong>Danh mục: {{category.name}}</strong></p>
+                                            <strong>Số lương:</strong><input type="number" name="quantity" value="1" class="form-control input-sm">
+                                            <input type="hidden" name="product_id" value="{{product.id}}" />
+                                            <div style="height: 10px"></div>
+                                            <button type="submit" class="btn btn-danger btn-sm btn-block">Thêm vào giỏ hàng</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </figure>
+        </div>
+    </section>
+    <div class="clearfix"></div>
+    <hr>
+    <div class="container">
+        <div class="row filter" id="filter-bottom">
+            <!--<div class="col-md-3" ng-if="category.products.length < pageSize">-->
+                <!--Hiển thị {{category.products.length}} trên tổng số {{category.products.length}} sản phẩm!-->
+            <!--</div>-->
+            <!--<div class="col-md-3" ng-if="category.products.length > pageSize">-->
+                <!--Hiển thị {{pageSize}} trên tổng số {{category.products.length}} sản phẩm!-->
+            <!--</div>-->
+            <div class="pull-right" style="padding-top: 0px">
+                <div ng-controller="OtherController" class="other-controller">
+                    <div class="text-center">
+                        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template_url="/admin/angular-js/html/phantrang.html">
+                        </dir-pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End product group -->
+</div>
+<!-- End main -->
